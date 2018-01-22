@@ -108,4 +108,4 @@ FontAwesome.propTypes = {
 
 export default FontAwesome
 
-export { FAUL, FALI };
+export { FAUL, FALI }

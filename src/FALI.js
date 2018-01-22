@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 const fali = (props) => {
+  let className = []
   return (
-    <li>{ props.children }</li>
-  );
-};
+    <li className={className.join(' ')}>{ props.children }</li>
+  )
+}
 
-export default fali;
+export default fali
