@@ -41,11 +41,11 @@ export const formatClassName = (props, base) => {
     return {name: x, val: props[x]}
   })
   .reduce((accumulator, currentValue) => {
-    return output.push(
+    return currentValue.val ? output.push(
       cssModule ?
         cssModule[formatterMap[currentValue.name](currentValue.val)] :
         formatterMap[currentValue.name](currentValue.val)
-    )
+    ) : output
   }, output)
 
   className && output.push(className)
