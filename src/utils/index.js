@@ -1,7 +1,6 @@
 export const formatClassName = (props, base) => {
-  let { className, cssModule } = props
-  let output = [ base ]
-  let propsToFormat = [
+  const { className, cssModule } = props
+  const propsToFormat = [
     'name',
     'size',
     'spin',
@@ -13,6 +12,8 @@ export const formatClassName = (props, base) => {
     'rotate',
     'stack'
   ]
+
+  let output = cssModule ? [ cssModule[base] ] : [ base ]
 
   let simpleFormatter = (appendValue) => {
     return `fa-${appendValue}`
@@ -35,9 +36,11 @@ export const formatClassName = (props, base) => {
     stack: (stackVal) => complexFormatter('stack', stackVal)
   }
 
-  propsToFormat.map(x => {
+  propsToFormat
+  .map(x => {
     return {name: x, val: props[x]}
-  }).reduce((accumulator, currentValue) => {
+  })
+  .reduce((accumulator, currentValue) => {
     return output.push(
       cssModule ?
         cssModule[formatterMap[currentValue.name](currentValue.val)] :
@@ -48,4 +51,23 @@ export const formatClassName = (props, base) => {
   className && output.push(className)
 
   return output;
+}
+
+export const getPassthroughProps = (props) => {
+  const {
+    cssModule,
+    className,
+    name,
+    size,
+    spin,
+    pulse,
+    border,
+    fixedWidth,
+    inverse,
+    flip,
+    rotate,
+    stack,
+    ...output
+  } = props
+  return output
 }
