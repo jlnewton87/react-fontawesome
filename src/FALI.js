@@ -51,7 +51,7 @@ const fali = (props) => {
   className && classNames.push(className)
 
   return (
-    <li className={classNames.join(' ')}>{ props.children }</li>
+    <li><i className={classNames.join(' ')}></i>{ props.children }</li>
   )
 }
 
