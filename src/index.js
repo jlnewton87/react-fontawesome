@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import srOnlyStyle from './screen-reader-styles'
+import FAUL from './FAUL';
+import FALI from './FALI';
 
 /**
  * A React component for the font-awesome icon library.
@@ -105,3 +107,5 @@ FontAwesome.propTypes = {
 }
 
 export default FontAwesome
+
+export { FAUL, FALI };
