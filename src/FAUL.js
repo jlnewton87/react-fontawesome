@@ -1,8 +1,9 @@
 import React from 'react';
 
+// TODO: Might still need custom className addition
 const faul = (props) => {
   return (
-    <ul>
+    <ul className="fa-ul">
       { props.children }
     </ul>
   );
