@@ -1,8 +1,9 @@
-import { formatClassName } from '../src/utils/';
+import { formatClassName, getPassthroughProps } from '../src/utils/';
 
 describe('react-fontawesome utils', () => {
   let classes
   let props
+  let passthroughProps
 
   beforeEach(() => {
     props = {
@@ -17,9 +18,11 @@ describe('react-fontawesome utils', () => {
       pulse: true,
       rotate: 180,
       stack: '1x',
+      thisIsNotThePropYouAreLookingFor: true
     }
 
     classes = formatClassName(props, 'fa')
+    passthroughProps = getPassthroughProps(props)
   })
 
   describe('formatClassName', () => {
@@ -39,6 +42,14 @@ describe('react-fontawesome utils', () => {
         'my-custom-class',
       ]
       expectedClasses.forEach(name => expect(classes).to.include(name))
+    })
+  })
+  describe('getPassthroughProps', () => {
+    it('should return the correct props', () => {
+      let expectedLeftoverProps = [
+        'thisIsNotThePropYouAreLookingFor'
+      ]
+      expectedLeftoverProps.forEach(name => expect(passthroughProps[name]).to.be.equal(true))
     })
   })
 })

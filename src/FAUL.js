@@ -1,14 +1,12 @@
 import React from 'react'
+import { getPassthroughProps, formatClassName } from './utils/';
 
 const faul = (props) => {
-  const { className } = props
-
-  let classNames = ['fa-ul']
-
-  className && classNames.push(className)
+  const classNames = formatClassName(props, 'fa-ul')
+  const passthroughProps = getPassthroughProps(props)
 
   return (
-    <ul className={classNames.join(' ')}>
+    <ul className={classNames.join(' ')} {...passthroughProps}>
       { props.children }
     </ul>
   )
