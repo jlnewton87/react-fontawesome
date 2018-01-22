@@ -1,12 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-// TODO: Might still need custom className addition
 const faul = (props) => {
+  const { className } = props
+
+  let classNames = ['fa-ul']
+
+  className && classNames.push(className)
+
   return (
-    <ul className="fa-ul">
+    <ul className={classNames.join(' ')}>
       { props.children }
     </ul>
-  );
-};
+  )
+}
 
-export default faul;
+export default faul
