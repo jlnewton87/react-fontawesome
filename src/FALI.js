@@ -15,8 +15,7 @@ const fali = (props) => {
     spin,
     stack,
     tag = 'span',
-    ariaLabel,
-    ...props
+    ariaLabel
   } = props
 
   const classNames = []
